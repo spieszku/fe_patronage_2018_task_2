@@ -1,0 +1,35 @@
+.moviesCounter {
+    font-weight: bold;
+}
+#moviesListContainer {
+    margin-top: 100px;
+}
+#moviesList {
+    width: 960px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+#moviesList li {
+    border: solid 1px;
+    margin-bottom: 15px;
+    padding: 15px;
+    list-style: none;
+    transition: all 0.5s;
+}
+#moviesList li:hover {
+    background-color: #13ff06;
+}
+#moviesCountersContainer {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    text-align: right;
+}
+.movie-status {
+    cursor: pointer;
+}
+
+.col-3 {
+    float: left;
+    width: calc(100% / 3);
+}
