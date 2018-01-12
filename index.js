@@ -1,4 +1,8 @@
 import setCounterOfTo from "./movies-counter.js";
+import MoviesStorage from "./movies-storage.js";
+
+let movies = new MoviesStorage();
+let moviesData = movies;
 
 const symbolTrue = "&#x2611";
 const symbolFalse = "&#x2612";
