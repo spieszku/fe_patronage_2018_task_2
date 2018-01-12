@@ -1,6 +1,7 @@
 export default class MoviesStorage {
     constructor () {
-        const deafultMovies = [
+        this.storagedMovies = JSON.parse(localStorage.getItem("movie"));
+        this.defaultMovies = [
             {
                 "id": 1,
                 "title": "The Shawshank Redemption",
@@ -58,16 +59,22 @@ export default class MoviesStorage {
                 "seen": "F"
             }
         ];
+    }
+    getAllMovies () {
         let moviesData;
-        let storagedMovies = localStorage.getItem("movie");
-        storagedMovies = JSON.parse(storagedMovies);
-        let movieIsArray = Array.isArray(storagedMovies);
+        let movieIsArray = Array.isArray(this.storagedMovies);
         if(movieIsArray){
-            moviesData = storagedMovies;
+            moviesData = this.storagedMovies;
         }
         else {
-            moviesData = deafultMovies;
+            moviesData = this.defaultMovies;
         }
         return moviesData;
+    }
+    getSingleMovie(id) {
+        let movieIndex = this.storagedMovies.findIndex(function(movie) {
+            return movie.id == id;
+        });
+        return this.storagedMovies[movieIndex];
     }
 }

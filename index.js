@@ -2,7 +2,7 @@ import setCounterOfTo from "./movies-counter.js";
 import MoviesStorage from "./movies-storage.js";
 
 let movies = new MoviesStorage();
-let moviesData = movies;
+let moviesData = movies.getAllMovies();
 
 const symbolTrue = "&#x2611";
 const symbolFalse = "&#x2612";
@@ -13,12 +13,13 @@ let moviesCounterSeen = 0;
 setCounterOfTo("All", moviesCounterAll);
 
 // update displayed value of movies counter seen and movie status
-function updateMovieSymbol(index, movieStatus) {
-    document.querySelector("#movie-" + index).innerHTML = "Seen: " + movieStatus;
+function updateMovieSymbol(movieId, movieStatus) {
+    document.querySelector("#movie-" + movieId).innerHTML = "Seen: " + movieStatus;
 }
 
 for (let [index, movieItem] of moviesData.entries()) {
     let movieStatus;
+    let movieId = movieItem.id;
     // count seen movies
     if (movieItem.seen === "T") {
         moviesCounterSeen++;
@@ -34,23 +35,23 @@ for (let [index, movieItem] of moviesData.entries()) {
         "<p>" + movieItem.title + "</p>" +
         "<p class='col-3'>Year: " + movieItem.year + "</p>" +
         "<p class='col-3'>Genre: " + movieItem.genre + "</p>" +
-        "<p class='col-3 movie-status' id='movie-" + index + "' data-id='" + index + "'></p>" +
+        "<p class='col-3 movie-status' id='movie-" + movieId + "' data-id='" + movieId + "'></p>" +
         "<p>" + movieItem.summary + "</p>";
 
         document.querySelector("#moviesList").appendChild(listedMovie);
 
 
         setCounterOfTo("Seen", moviesCounterSeen);
-        updateMovieSymbol(index, movieStatus);
+        updateMovieSymbol(movieId, movieStatus);
 
-        document.querySelector("#movie-" + index).addEventListener("click", function() {
+        document.querySelector("#movie-" + movieItem.id).addEventListener("click", function() {
             updateMovies(this);
     });
 }
 
 function updateMovies(movie) {
     let movieId = movie.getAttribute("data-id");
-    let activeMovie = moviesData[movieId];
+    let activeMovie = movies.getSingleMovie(movieId);
     let movieStatus;
     if (activeMovie.seen === "F") {
         activeMovie.seen = "T";
@@ -62,6 +63,6 @@ function updateMovies(movie) {
         moviesCounterSeen--;
         movieStatus = symbolFalse;
     }
-    setCounterOfTo("Seen",moviesCounterSeen);
+    setCounterOfTo("Seen", moviesCounterSeen);
     updateMovieSymbol(movieId, movieStatus);
 }
