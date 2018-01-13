@@ -67,6 +67,8 @@ export default class MoviesStorage {
             moviesData = this.storagedMovies;
         }
         else {
+            localStorage.setItem("movie", JSON.stringify(this.defaultMovies));
+            this.storagedMovies = JSON.parse(localStorage.getItem("movie"));
             moviesData = this.defaultMovies;
         }
         return moviesData;
