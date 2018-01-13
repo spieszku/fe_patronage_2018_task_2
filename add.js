@@ -1,8 +1,11 @@
 import MoviesStorage from "./movies-storage.js";
-
+import setCounterOfTo from "./movies-counter.js";
 
 let movies = new MoviesStorage();
 let addMovieForm = document.getElementById("addMovieForm");
+
+setCounterOfTo("#anotherMoviesCounterAll", movies.getAllMovies().length);
+setCounterOfTo("#anotherMoviesCounterSeen", movies.getAllMovies().length);
 
 document.querySelector("#test").addEventListener("click", function() {
     addMovie();
@@ -34,6 +37,7 @@ function addMovie() {
                 movie.seen = "T";
                 movies.setNewMovie(movie);
                 document.getElementById("addMovieForm").reset();
+                setCounterOfTo("#anotherMoviesCounterAll",currentListOfMovies.length);
             }
             else {
                 alert("Movie with this title already exist! You can't duplicate it!");

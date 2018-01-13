@@ -86,6 +86,23 @@ export default class MoviesStorage {
 
         // add new movie to storagedMovies array
         this.storagedMovies.push(data);
+        this.updateMoviesList(this.storagedMovies);
+    }
+    updateMovie(id, data) {
+        let movieIndex = this.storagedMovies.findIndex(function(movie) {
+            return movie.id == id;
+        });
+        this.storagedMovies[movieIndex] = data;
+        this.updateMoviesList(this.storagedMovies);
+    }
+    removeMovie(id) {
+        let movieIndex = this.storagedMovies.findIndex(function(movie) {
+            return movie.id == id;
+        });
+        this.storagedMovies.splice(movieIndex, 1);
+        this.updateMoviesList(this.storagedMovies);
+    }
+    updateMoviesList(data) {
         localStorage.setItem("movie", JSON.stringify(this.storagedMovies));
     }
 }

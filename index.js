@@ -10,7 +10,7 @@ let moviesCounterAll = moviesData.length;
 let moviesCounterSeen = 0;
 
 // display number of all movies
-setCounterOfTo("All", moviesCounterAll);
+setCounterOfTo("#moviesCounterAll", moviesCounterAll);
 
 // update displayed value of movies counter seen and movie status
 function updateMovieSymbol(movieId, movieStatus) {
@@ -41,7 +41,7 @@ for (let [index, movieItem] of moviesData.entries()) {
         document.querySelector("#moviesList").appendChild(listedMovie);
 
 
-        setCounterOfTo("Seen", moviesCounterSeen);
+        setCounterOfTo("#moviesCounterSeen", moviesCounterSeen);
         updateMovieSymbol(movieId, movieStatus);
 
         document.querySelector("#movie-" + movieItem.id).addEventListener("click", function() {
@@ -63,6 +63,6 @@ function updateMovies(movie) {
         moviesCounterSeen--;
         movieStatus = symbolFalse;
     }
-    setCounterOfTo("Seen", moviesCounterSeen);
+    setCounterOfTo("#moviesCounterSeen", moviesCounterSeen);
     updateMovieSymbol(movieId, movieStatus);
 }

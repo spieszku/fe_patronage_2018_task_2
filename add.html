@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Movie</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div id="moviesCountersContainer">
+<div id="moviesNavigationContainer" class="container">
+    <a href="index.html" title="Movies List">Movies List</a>
+</div>
+<div id="moviesCountersContainer" class="counters">
     <p>All: <span class="moviesCounter" id="anotherMoviesCounterAll"></span></p>
+
     <p>Viewed: <span class="moviesCounter" id="anotherMoviesCounterSeen"></span></p>
 </div>
-<div id="formContainer">
+<div id="formContainer" class="container">
     <form id="addMovieForm">
-        <label for="#movieTitle">Title</label>
-        <input type="text" id="#movieTitle" name="title">
-        <label for="#movieYear">Year</label>
-        <input type="number" id="#movieYear" name="year">
-        <label for="#movieGenre">Genre</label>
-        <input type="text" id="#movieGenre" name="genre">
-        <label for="#movieSummary">Summary</label>
-        <textarea type="text" id="#movieSummary" name="summary"></textarea>
+        <p class="form-item">
+            <label for="#movieTitle">Title</label>
+            <input type="text" id="#movieTitle" name="title">
+        </p>
+
+        <p class="form-item">
+            <label for="#movieYear">Year</label>
+            <input type="number" id="#movieYear" name="year">
+        </p>
+
+        <p class="form-item">
+            <label for="#movieGenre">Genre</label>
+            <input type="text" id="#movieGenre" name="genre">
+        </p>
+
+        <p form-item>
+            <label for="#movieSummary">Summary</label>
+            <textarea id="#movieSummary" name="summary"></textarea>
+        </p>
         <input type="button" value="Add" id="test">
     </form>
 </div>

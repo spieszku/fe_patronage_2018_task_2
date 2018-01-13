@@ -4,7 +4,7 @@
 #moviesListContainer {
     margin-top: 100px;
 }
-#moviesList {
+.container {
     width: 960px;
     max-width: 100%;
     margin: 0 auto;
@@ -19,7 +19,7 @@
 #moviesList li:hover {
     background-color: #13ff06;
 }
-#moviesCountersContainer {
+.counters {
     position: absolute;
     top: 0;
     right: 15px;

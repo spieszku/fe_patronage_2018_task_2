@@ -1,3 +1,3 @@
 export default function setCounterOfTo(elem, value) {
-    document.querySelector("#moviesCounter" + elem).innerHTML = value;
+    document.querySelector(elem).innerHTML = value;
 }
