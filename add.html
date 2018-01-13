@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+</head>
+<body>
+<div id="moviesCountersContainer">
+    <p>All: <span class="moviesCounter" id="anotherMoviesCounterAll"></span></p>
+    <p>Viewed: <span class="moviesCounter" id="anotherMoviesCounterSeen"></span></p>
+</div>
+<div id="formContainer">
+    <form id="addMovieForm">
+        <label for="#movieTitle">Title</label>
+        <input type="text" id="#movieTitle" name="title">
+        <label for="#movieYear">Year</label>
+        <input type="number" id="#movieYear" name="year">
+        <label for="#movieGenre">Genre</label>
+        <input type="text" id="#movieGenre" name="genre">
+        <label for="#movieSummary">Summary</label>
+        <textarea type="text" id="#movieSummary" name="summary"></textarea>
+        <input type="button" value="Add" id="test">
+    </form>
+</div>
+<script src="add.js" type="module"></script>
+</body>
+</html>

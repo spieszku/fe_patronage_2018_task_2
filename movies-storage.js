@@ -79,4 +79,13 @@ export default class MoviesStorage {
         });
         return this.storagedMovies[movieIndex];
     }
+    setNewMovie(data) {
+        // set Id of new movie
+        let lastMovieId = Math.max.apply(Math, this.storagedMovies.map(function(obj){return obj.id;}));
+        data.id = lastMovieId + 1;
+
+        // add new movie to storagedMovies array
+        this.storagedMovies.push(data);
+        localStorage.setItem("movie", JSON.stringify(this.storagedMovies));
+    }
 }
