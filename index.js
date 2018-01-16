@@ -32,14 +32,13 @@ for (let [index, movieItem] of moviesData.entries()) {
     // create movieList element from moviesData
     let listedMovie = document.createElement("LI");
     listedMovie.innerHTML =
-        "<p>" + movieItem.title + "</p>" +
-        "<p class='col-3'>Year: " + movieItem.year + "</p>" +
-        "<p class='col-3'>Genre: " + movieItem.genre + "</p>" +
-        "<p class='col-3 movie-status' id='movie-" + movieId + "' data-id='" + movieId + "'></p>" +
-        "<p>" + movieItem.summary + "</p>";
+        `<p>${movieItem.title}</p>
+        <p class="col-3">Year: ${movieItem.year}</p>
+        <p class="col-3">Genre: ${movieItem.genre}</p>
+        <p class="col-3 movie-status" id="movie-${movieId}" data-id="${movieId}"></p>
+        <p>${movieItem.summary}</p>`;
 
         document.querySelector("#moviesList").appendChild(listedMovie);
-
 
         setCounterOfTo("#moviesCounterSeen", moviesCounterSeen);
         updateMovieSymbol(movieId, movieStatus);
@@ -63,6 +62,7 @@ function updateMovies(movie) {
         moviesCounterSeen--;
         movieStatus = symbolFalse;
     }
+    movies.set(movieId, activeMovie);
     setCounterOfTo("#moviesCounterSeen", moviesCounterSeen);
     updateMovieSymbol(movieId, movieStatus);
 }

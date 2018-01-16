@@ -17,25 +17,28 @@
 <div id="formContainer" class="container">
     <form id="addMovieForm">
         <p class="form-item">
-            <label for="#movieTitle">Title</label>
-            <input type="text" id="#movieTitle" name="title">
+            <label for="#movieTitle">Title *</label>
+            <input type="text" id="#movieTitle" name="title" required>
         </p>
 
         <p class="form-item">
-            <label for="#movieYear">Year</label>
-            <input type="number" id="#movieYear" name="year">
+            <label for="#movieYear">Year *</label>
+            <input type="number" id="#movieYear" name="year" required>
         </p>
 
         <p class="form-item">
-            <label for="#movieGenre">Genre</label>
-            <input type="text" id="#movieGenre" name="genre">
+            <label for="#movieGenre">Genre *</label>
+            <input type="text" id="#movieGenre" name="genre" required>
         </p>
 
-        <p form-item>
+        <p class="form-item">
             <label for="#movieSummary">Summary</label>
-            <textarea id="#movieSummary" name="summary"></textarea>
+            <textarea id="#movieSummary" name="summary" rows="5"></textarea>
         </p>
-        <input type="button" value="Add" id="test">
+
+        <p class="form-submit">
+            <input type="submit" value="Add" id="addMovieSubmit" class="btn">
+        </p>
     </form>
 </div>
 <script src="add.js" type="module"></script>

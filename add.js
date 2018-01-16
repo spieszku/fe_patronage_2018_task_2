@@ -7,7 +7,7 @@ let addMovieForm = document.getElementById("addMovieForm");
 setCounterOfTo("#anotherMoviesCounterAll", movies.get().length);
 setCounterOfTo("#anotherMoviesCounterSeen", movies.get().length);
 
-document.querySelector("#test").addEventListener("click", function() {
+document.querySelector("#addMovieSubmit").addEventListener("click", function() {
     addMovie();
 });
 

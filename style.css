@@ -10,14 +10,15 @@
     margin: 0 auto;
 }
 #moviesList li {
-    border: solid 1px;
+    border: solid 2px #7ab800;
     margin-bottom: 15px;
     padding: 15px;
     list-style: none;
+    border-radius: 5px;
     transition: all 0.5s;
 }
 #moviesList li:hover {
-    background-color: #13ff06;
+    background-color: #7ab800;
 }
 .counters {
     position: absolute;
@@ -27,9 +28,68 @@
 }
 .movie-status {
     cursor: pointer;
+    transition: color 0.5s;
+}
+.movie-status:hover {
+    color: #fff;
 }
 
 .col-3 {
     float: left;
     width: calc(100% / 3);
+}
+
+#formContainer {
+    padding-top: 80px;
+}
+#addMovieForm {
+    width: 480px;
+    margin: 0 auto;
+    border: solid 2px #7ab800;
+    padding: 30px 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.form-item {
+    width: 320px;
+    margin: 0 auto;
+}
+.form-item input, .form-item textarea {
+    padding: 5px 10px;
+    border: solid 2px #007ac9;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.form-item input:focus, .form-item textarea:focus {
+    outline: none;
+    border-color: #004080;
+}
+
+.form-item label {
+    line-height: 30px;
+    font-weight: bold;
+    display: block;
+}
+.form-submit {
+    text-align: center;
+    padding: 15px;
+}
+.btn {
+    padding: 10px 20px;
+    background-color: #007ac9;
+    color: #fff;
+    font-weight: bold;
+    border: solid 2px #007ac9;
+    cursor: pointer;
+    min-width: 200px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.btn:hover {
+    color: #007ac9;
+    background-color: #fff;
+}
+.btn:focus {
+    outline: none;
 }
