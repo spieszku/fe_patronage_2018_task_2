@@ -39,6 +39,7 @@ function addMovie() {
             if(movieTitleExist === undefined) {
                 movie.seen = "F";
                 movies.set(movie);
+                alert(`${movie.title} added successfully!`);
                 document.getElementById("addMovieForm").reset();
                 setCounterOfTo("#anotherMoviesCounterAll", currentListOfMovies.length);
             }
