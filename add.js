@@ -4,15 +4,15 @@ import setCounterOfTo from "./movies-counter.js";
 let movies = new MoviesStorage();
 let addMovieForm = document.getElementById("addMovieForm");
 
-setCounterOfTo("#anotherMoviesCounterAll", movies.getAllMovies().length);
-setCounterOfTo("#anotherMoviesCounterSeen", movies.getAllMovies().length);
+setCounterOfTo("#anotherMoviesCounterAll", movies.get().length);
+setCounterOfTo("#anotherMoviesCounterSeen", movies.get().length);
 
 document.querySelector("#test").addEventListener("click", function() {
     addMovie();
 });
 
 function addMovie() {
-    let currentListOfMovies = movies.getAllMovies();
+    let currentListOfMovies = movies.get();
     let movie = {};
     let elements = addMovieForm.querySelectorAll( "input, textarea" );
     for (let element of elements) {
