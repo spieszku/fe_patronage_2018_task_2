@@ -3,6 +3,7 @@ import MoviesStorage from "./movies-storage.js";
 
 let movies = new MoviesStorage();
 let moviesData = movies.get();
+movies.get(3);
 
 const symbolTrue = "&#x2611";
 const symbolFalse = "&#x2612";

@@ -68,26 +68,16 @@ export default class MoviesStorage {
         this.moviesData = moviesData;
     }
     get() {
-        return this.moviesData;
-    }
-    //getAllMovies () {
-    //    let moviesData;
-    //    let movieIsArray = Array.isArray(this.storagedMovies);
-    //    if(movieIsArray){
-    //        moviesData = this.storagedMovies;
-    //    }
-    //    else {
-    //        localStorage.setItem("movie", JSON.stringify(this.defaultMovies));
-    //        this.storagedMovies = JSON.parse(localStorage.getItem("movie"));
-    //        moviesData = this.defaultMovies;
-    //    }
-    //    return moviesData;
-    //}
-    getSingleMovie(id) {
-        let movieIndex = this.moviesData.findIndex(function(movie) {
-            return movie.id == id;
-        });
-        return this.moviesData[movieIndex];
+        if (arguments.length == 0) {
+            return this.moviesData;
+        }
+        else if (arguments.length === 1 && typeof arguments[0] === "number") {
+            let id = arguments[0];
+            let movieIndex = this.moviesData.findIndex(function(movie) {
+                return movie.id === id;
+            });
+            return console.log(this.moviesData[movieIndex]);
+        }
     }
     setNewMovie(data) {
         // set Id of new movie
