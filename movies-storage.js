@@ -73,13 +73,10 @@ export default class MoviesStorage {
         }
         else if (arguments.length === 1 && typeof arguments[0] === "number") {
             let id = arguments[0];
-            let movieIndex = this.moviesData.findIndex(function(movie) {
-                return movie.id === id;
-            });
+            let movieIndex = this.findIndexOfMovie(id);
             return this.moviesData[movieIndex];
         }
     }
-
     set() {
         if(arguments.length === 1 && typeof arguments === "object") {
             // add new movie
@@ -96,21 +93,23 @@ export default class MoviesStorage {
             let data = arguments[1];
 
             // update existing movie
-            let movieIndex = this.moviesData.findIndex(function(movie) {
-                return movie.id == id;
-            });
+            let movieIndex = this.findIndexOfMovie(id);
             this.moviesData[movieIndex] = data;
         }
         this.updateMoviesList(this.moviesData);
     }
-    removeMovie(id) {
-        let movieIndex = this.moviesData.findIndex(function(movie) {
-            return movie.id == id;
-        });
+    remove(id) {
+        let movieIndex = this.findIndexOfMovie(id);
         this.moviesData.splice(movieIndex, 1);
         this.updateMoviesList(this.moviesData);
     }
     updateMoviesList(data) {
         localStorage.setItem("movie", JSON.stringify(this.moviesData));
+    }
+    findIndexOfMovie(id) {
+        let movieIndex = this.moviesData.findIndex(function(movie) {
+            return movie.id == id;
+        });
+        return movieIndex;
     }
 }
