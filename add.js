@@ -3,9 +3,12 @@ import setCounterOfTo from "./movies-counter.js";
 
 let movies = new MoviesStorage();
 let addMovieForm = document.getElementById("addMovieForm");
+let seenMovies = movies.get().filter(function (movie) {
+    return movie.seen === "T";
+});
 
 setCounterOfTo("#anotherMoviesCounterAll", movies.get().length);
-setCounterOfTo("#anotherMoviesCounterSeen", movies.get().length);
+setCounterOfTo("#anotherMoviesCounterSeen", seenMovies.length);
 
 document.querySelector("#addMovieSubmit").addEventListener("click", function() {
     addMovie();

@@ -9,6 +9,9 @@
     max-width: 100%;
     margin: 0 auto;
 }
+#moviesList {
+    padding: 0;
+}
 #moviesList li {
     border: solid 2px #7ab800;
     margin-bottom: 15px;
@@ -92,4 +95,11 @@
 }
 .btn:focus {
     outline: none;
+}
+
+#moviesNavigationContainer {
+    padding: 15px 0;
+}
+a {
+    text-decoration: none;
 }
