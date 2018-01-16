@@ -76,23 +76,31 @@ export default class MoviesStorage {
             let movieIndex = this.moviesData.findIndex(function(movie) {
                 return movie.id === id;
             });
-            return console.log(this.moviesData[movieIndex]);
+            return this.moviesData[movieIndex];
         }
     }
-    setNewMovie(data) {
-        // set Id of new movie
-        let lastMovieId = Math.max.apply(Math, this.moviesData.map(function(obj){return obj.id;}));
-        data.id = lastMovieId + 1;
 
-        // add new movie to storagedMovies array
-        this.moviesData.push(data);
-        this.updateMoviesList(this.moviesData);
-    }
-    updateMovie(id, data) {
-        let movieIndex = this.moviesData.findIndex(function(movie) {
-            return movie.id == id;
-        });
-        this.moviesData[movieIndex] = data;
+    set() {
+        if(arguments.length === 1 && typeof arguments === "object") {
+            // add new movie
+            let data = arguments[0];
+            // set Id of new movie
+            let lastMovieId = Math.max.apply(Math, this.moviesData.map(function(obj){return obj.id;}));
+            data.id = lastMovieId + 1;
+
+            // add new movie to moviesData array
+            this.moviesData.push(data);
+        }
+        else if (arguments.length === 2 && typeof arguments[0] === "number" && typeof arguments[1] === "object") {
+            let id = arguments[0];
+            let data = arguments[1];
+
+            // update existing movie
+            let movieIndex = this.moviesData.findIndex(function(movie) {
+                return movie.id == id;
+            });
+            this.moviesData[movieIndex] = data;
+        }
         this.updateMoviesList(this.moviesData);
     }
     removeMovie(id) {

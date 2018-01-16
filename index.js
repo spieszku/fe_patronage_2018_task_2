@@ -3,7 +3,6 @@ import MoviesStorage from "./movies-storage.js";
 
 let movies = new MoviesStorage();
 let moviesData = movies.get();
-movies.get(3);
 
 const symbolTrue = "&#x2611";
 const symbolFalse = "&#x2612";
@@ -51,8 +50,8 @@ for (let [index, movieItem] of moviesData.entries()) {
 }
 
 function updateMovies(movie) {
-    let movieId = movie.getAttribute("data-id");
-    let activeMovie = movies.getSingleMovie(movieId);
+    let movieId = Number(movie.getAttribute("data-id"));
+    let activeMovie = movies.get(movieId);
     let movieStatus;
     if (activeMovie.seen === "F") {
         activeMovie.seen = "T";

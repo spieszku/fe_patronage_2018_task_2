@@ -35,7 +35,7 @@ function addMovie() {
             let movieTitleExist = currentListOfMovies.find(x => x.title === movie.title);
             if(movieTitleExist === undefined) {
                 movie.seen = "F";
-                movies.setNewMovie(movie);
+                movies.set(movie);
                 document.getElementById("addMovieForm").reset();
                 setCounterOfTo("#anotherMoviesCounterAll", currentListOfMovies.length);
             }
