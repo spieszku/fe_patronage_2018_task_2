@@ -27,7 +27,7 @@ function addMovie() {
     }
 
     // check if title, year and genre are filled
-    if(movie.title.length === 0 || movie.year.length === 0 || movie.genre.length === 0) {
+    if(!movie.title.length || !movie.year.length || !movie.genre.length) {
         alert("Title, year and genre are required!!!");
     }
     else {
