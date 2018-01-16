@@ -34,10 +34,10 @@ function addMovie() {
             // check if title of movie is uniqe
             let movieTitleExist = currentListOfMovies.find(x => x.title === movie.title);
             if(movieTitleExist === undefined) {
-                movie.seen = "T";
+                movie.seen = "F";
                 movies.setNewMovie(movie);
                 document.getElementById("addMovieForm").reset();
-                setCounterOfTo("#anotherMoviesCounterAll",currentListOfMovies.length);
+                setCounterOfTo("#anotherMoviesCounterAll", currentListOfMovies.length);
             }
             else {
                 alert("Movie with this title already exist! You can't duplicate it!");
